@@ -51,7 +51,7 @@ class Generador(ElementoRed):
     def get_costo_operacion(self) -> float:
         return self.__costo_operacion
 
-    def set_potencia(self, potencia: float):
+    def set_potencia(self, potencia: float) -> None:
         if self.__potencia_min <= potencia <= self.__potencia_max:
             self.__potencia = potencia
         else:
@@ -82,7 +82,7 @@ class Carga(ElementoRed):
     def get_demanda(self) -> float:
         return self.__demanda
 
-    def set_demanda(self, demanda: float):
+    def set_demanda(self, demanda: float) -> None:
         if demanda >= 0:
             self.__demanda = demanda
         else:
@@ -125,7 +125,7 @@ class LineaTransmision(ElementoRed):
     def get_perdidas(self) -> float:
         return self.__perdidas
 
-    def set_capacidad(self, capacidad: float):
+    def set_capacidad(self, capacidad: float) -> None:
         if 0 <= capacidad <= self.__capacidad_max:
             self.__capacidad = capacidad
         else:
@@ -152,7 +152,7 @@ class SistemaPotencia:
     def get_nombre(self) -> str:
         return self.__nombre
 
-    def agregar_generador(self, generador: Generador):
+    def agregar_generador(self, generador: Generador) -> None:
         if isinstance(generador, Generador):
             self.__generadores.append(generador)
         else:
@@ -160,7 +160,7 @@ class SistemaPotencia:
                 "El elemento ingresado debe ser un objeto Generador."
             )
 
-    def agregar_carga(self, carga: Carga):
+    def agregar_carga(self, carga: Carga) -> None:
         if isinstance(carga, Carga):
             self.__cargas.append(carga)
         else:
@@ -168,7 +168,7 @@ class SistemaPotencia:
                 "El elemento ingresado debe ser un objeto Carga."
             )
 
-    def agregar_linea(self, linea: LineaTransmision):
+    def agregar_linea(self, linea: LineaTransmision) -> None:
         if isinstance(linea, LineaTransmision):
             self.__lineas.append(linea)
         else:
